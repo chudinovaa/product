@@ -1,40 +1,34 @@
 module.exports = {
-    "env": {
+    parser: '@typescript-eslint/parser',
+    env: {
         "browser": true,
         "es2021": true
     },
-    "extends": [
+    extends: [
         "standard-with-typescript",
-        "plugin:react/recommended"
+        "plugin:react/recommended",
+        "plugin:i18next/recommended"
     ],
-    "overrides": [
-        {
-            "env": {
-                "node": true
-            },
-            "files": [
-                ".eslintrc.{js,cjs}"
-            ],
-            "parserOptions": {
-                "sourceType": "script"
-            }
-        }
-    ],
-    "parserOptions": {
+    parserOptions: {
         "ecmaVersion": "latest",
         "sourceType": "module",
     },
-    "plugins": [
-        "react"
+    ignorePatterns: ['.eslintrc.js'],
+    plugins: [
+        "react",
+        "@typescript-eslint",
+        "i18next"
     ],
-    "rules": {
+    rules: {
         '@typescript-eslint/indent': [2,4],
         'react/react-in-jsx-scope' : 'off',
+        '@typescript-eslint/no-unused-vars' : 'warn',
         'no-trailing-spaces' : 'off',
         '@typescript-eslint/explicit-function-return-type' : 'off',
         'react/no-deprecated': 'off',
         '@typescript-eslint/naming-convention': 'off',
-        '@typescript-eslint/strict-boolean-expressions': 'off'
+        '@typescript-eslint/strict-boolean-expressions': 'off',
+        'i18next/no-literal-string': ['error', {markupOnly: true, onlyAttribute: ['']}],
     },
     globals: {
         __IS_DEV__: true,

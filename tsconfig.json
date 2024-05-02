@@ -17,7 +17,11 @@
   },
   "ts-node": {
     "compilerOptions": {
-      "module": "CommonJS"
-    }
+      "module": "CommonJS",
+      "types": [
+        "@i18next/eslint-plugin"
+      ]
+    },
+
   }
 }
